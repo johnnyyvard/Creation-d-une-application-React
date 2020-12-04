@@ -32,7 +32,7 @@ class App extends React.Component {
 
         this.setState(prevState => ({
             tasks: [...prevState.tasks, newTask]
-        }))  
+        }))
     }
 
     onDeleteCompleted = () => {
@@ -44,7 +44,28 @@ class App extends React.Component {
         })
     }
 
+    shouldComponentUpdate = () => {
+        console.log('Bonjour de shouldComponentUpdate')
+        return true
+    }
+
+    componentDidMount = () => {
+        console.log('Bonjour de componentDidMount')
+    }
+
+    componentDidUpdate = () => {
+        console.log('Bonjour de componentDidUpdate')
+    }
+
+    getSnapshotBeforeUpdate = () => {
+        console.log('Bonjour de getSnapshotBeforeUpdate')
+    }
+
+
+
     render() {
+        console.log('Bonjour de render')
+
         return (
             <section id="todo">
                 <BrowserRouter>
