@@ -5,11 +5,13 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import AddTask from './AddTask';
 import initialData from '../initialData';
 import uniqueid from 'uniqueid'
+import Fetching from './Fetching'
 
 class App extends React.Component {
 
     state = {
-        tasks: initialData
+        tasks: initialData,
+        fetching: true
     }
 
     onToggleCompleted = (taskId) => {
@@ -68,6 +70,7 @@ class App extends React.Component {
 
         return (
             <section id="todo">
+                {this.state.fetching? <Fetching /> : null}
                 <BrowserRouter>
                     <Switch>
                         <Route path="/add-task" render={(props) => <AddTask {...props} onAddTask={this.onAddTask} />} />
